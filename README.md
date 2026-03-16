@@ -1,156 +1,72 @@
-\# Hypervise — Industrial Safety Dashboard
-
-
+# Hypervise — Industrial Safety Dashboard
 
 A full-stack web application for monitoring PPE compliance and managing safety violations across industrial environments in real time.
 
+---
 
+## Features
 
-\---
+- Real-time PPE compliance tracking — helmets, vests, violations by zone and camera
+- Safety alert management with live badge counts and event resolution
+- Live camera stream access
+- Analytics with compliance trends and violation breakdowns
+- Role-based access control with JWT authentication
+- Protected routes with automatic token handling via Axios interceptors
 
+---
 
+## Tech Stack
 
-\## Features
+**Frontend:** React, Vite, React Router, Axios, Material UI  
+**Backend:** Node.js, Express, MySQL, JWT, bcrypt
 
-
-
-\- Real-time PPE compliance tracking — helmets, vests, violations by zone and camera
-
-\- Safety alert management with live badge counts and event resolution
-
-\- Live camera stream access
-
-\- Analytics with compliance trends and violation breakdowns
-
-\- Role-based access control with JWT authentication
-
-\- Protected routes with automatic token handling via Axios interceptors
-
-
-
-\---
-
-
-
-\## Tech Stack
-
-
-
-\*\*Frontend:\*\* React, Vite, React Router, Axios, Material UI  
-
-\*\*Backend:\*\* Node.js, Express, MySQL, JWT, bcrypt
-
-
-
-\---
-
-&#x20;          
-
+---
 New users are assigned `viewer` by default. Roles are managed by an admin.
+---
 
+## Getting Started
 
-
-\---
-
-
-
-\## Getting Started
-
-
-
-\### Backend
-
+### Backend
 ```bash
-
 cd backend
-
 npm install
-
 node --env-file=.env server.js
-
 ```
 
-
-
-\### Frontend
-
+### Frontend
 ```bash
-
 cd frontend
-
 npm install
-
 npm run dev
-
 ```
 
-
-
-\### Environment Variables
-
+### Environment Variables
 Create a `.env` file in `/backend`:
-
 ```
-
 PORT=5000
-
-JWT\_SECRET=your\_secret
-
-DB\_HOST=localhost
-
-DB\_USER=your\_db\_user
-
-DB\_PASSWORD=your\_db\_password
-
-DB\_NAME=industry\_safety
-
+JWT_SECRET=your_secret
+DB_HOST=localhost
+DB_USER=your_db_user
+DB_PASSWORD=your_db_password
+DB_NAME=industry_safety
 ```
 
+---
 
-
-\---
-
-
-
-\## Project Structure
-
-
-
+## Project Structure
 ```
-
 hypervise/
-
 ├── frontend/src/
-
 │   ├── api/          # Axios instance and API functions
-
 │   ├── components/   # Layout, Sidebar, Appbar, KPICard
-
 │   ├── pages/        # Login, Register, Overview, Analytics, Alerts, LiveStream
-
 │   └── utils/        # AuthContext, ProtectedRoute
-
-│
-
 └── backend/
-
-&#x20;   ├── modules/
-
-&#x20;   │   ├── auth/       # Login, Register, JWT, middleware
-
-&#x20;   │   ├── analytics/  # PPE and compliance data
-
-&#x20;   │   └── events/     # Alerts and event resolution
-
-&#x20;   └── db/             # MySQL connection pool
-
+    ├── modules/
+    │   ├── auth/       # Login, Register, JWT, middleware
+    │   ├── analytics/  # PPE and compliance data
+    │   └── events/     # Alerts and event resolution
+    └── db/             # MySQL connection pool
 ```
 
-
-
-\---
-
-
-
-\*Internal project — Eternal Robotics\*
-
+---
