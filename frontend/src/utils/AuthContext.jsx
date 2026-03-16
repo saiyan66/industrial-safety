@@ -37,7 +37,6 @@ export const AuthProvider = ({ children }) => {
       const res = await axios.post("http://localhost:5000/auth/register", {
         username: data.email,
         password: data.password,
-        role:     data.role || "viewer"
       });
       return res;
     } catch (error) {

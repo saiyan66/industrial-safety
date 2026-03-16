@@ -19,13 +19,13 @@ export const login = async (req, res) => {
 
 export const register = async (req, res) => {
   try {
-    const { username, password, role } = req.body;
+    const { username, password } = req.body;
  
     if (!username || !password) {
       return res.status(400).json({ error: "Username and password are required" });
     }
  
-    const user = await registerUser(username, password, role);
+    const user = await registerUser(username, password);
     res.status(201).json({ message: "User registered successfully", user });
   } catch (error) {
     res.status(400).json({ error: error.message });

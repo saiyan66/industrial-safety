@@ -18,11 +18,9 @@ export default function Register() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [role, setRole] = useState("operator");
   const [passwordVisible, setPasswordVisible] = useState(false);
   const [confirmVisible, setConfirmVisible] = useState(false);
   const [formErrors, setFormErrors] = useState({});
-
   const [openSuccessDialog, setOpenSuccessDialog]= useState(false);
   const [openErrorDialog, setOpenErrorDialog]= useState(false);
   const [errorMessage, setErrorMessage]= useState("");
@@ -55,7 +53,7 @@ export default function Register() {
     event.preventDefault();
     if (!validate()) return;
 
-    const res = await handleRegisterContext({ email, password, role });
+    const res = await handleRegisterContext({ email, password });
 
     if (res?.status === 201) {
       setOpenSuccessDialog(true);
@@ -75,7 +73,7 @@ export default function Register() {
           position: "relative",
         }}
       >
-        {/* ── Left image panel ── */}
+    
         {!isNarrow && (
           <div
             className="login_submain image-bg"
@@ -132,21 +130,6 @@ export default function Register() {
                   onChange={(e) => setEmail(e.target.value)}
                 />
                 {formErrors.email && <p style={{ color: "red" }}>{formErrors.email}</p>}
-              </div>
-
-              {/* Role */}
-              <div className="field">
-                <p style={{ color: "#3b4453", fontSize: "14px", fontWeight: "600", lineHeight: "20px" }}>Role</p>
-                <select
-                  className="input"
-                  style={{ backgroundColor: "#f4f5f6", cursor: "pointer" }}
-                  value={role}
-                  onChange={(e) => setRole(e.target.value)}
-                >
-                  <option value="operator">Operator</option>
-                  <option value="admin">Admin</option>
-                  <option value="viewer">Viewer</option>
-                </select>
               </div>
 
               {/* Password */}

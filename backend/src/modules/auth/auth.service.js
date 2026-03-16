@@ -33,7 +33,7 @@ export const loginUser = async (username, password) => {
 
 };
 
-export const registerUser = async (username, password, role = "operator") => {
+export const registerUser = async (username, password, role = "viewer") => {
  
   const existing = await findUserByUsername(username);
   if (existing) throw new Error("Username already exists");
